@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React,{Component} from 'react';
 import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import AllDays from "./components/allDays";
+import api_key from "./Api_Keys";
+class App extends Component{
+  state = {
+    forecastData: []
+  };
+  async componentDidMount() {
+    let data;
+    await fetch(`https://api.apixu.com/v1/forecast.json?key=${api_key}&q=Kolkata&days=10`).then(x => x.json()).then(y =>data = y.forecast.forecastday);
+    console.log(data);
+    var arr = [];
+    await data.forEach((x,ind) => arr.push( {'id':ind, "date":x.date, "max":x.day.maxtemp_c,"min":x.day.mintemp_c,"icon":x.day.condition.icon,"desc":x.day.condition.text}));
+    this.setState({forecastData: arr});
+    console.log(this.state.forecastData);
+  }
+  render () {
+    return (
+      <div className="App">
+        <AllDays data={this.state.forecastData}/>
+      </div>
+    );
+  }  
 }
 
 export default App;
