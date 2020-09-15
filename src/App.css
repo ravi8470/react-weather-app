@@ -4,7 +4,7 @@
 }
 
 .hourly{
-  color: #76323F; 
+  color: #76323F;
 }
 a{
   text-decoration: none;
@@ -17,8 +17,12 @@ a{
   justify-content: space-evenly;
 }
 .Day{
+  cursor:pointer;
   border: 2px solid #676666;
   color: #676666;
+  background: lightgrey;
+  min-width: 30%;
+  margin-bottom: 10px;
 }
 .App-header {
   background-color: #282c34;
@@ -31,8 +35,16 @@ a{
   color: white;
 }
 
+.dateSingle{
+  text-decoration: underline;
+}
+
 .App-link {
   color: #61dafb;
+}
+
+hr{
+  border-top: 5px solid #76323F;
 }
 
 @keyframes App-logo-spin {
@@ -42,4 +54,15 @@ a{
   to {
     transform: rotate(360deg);
   }
+}
+
+.selectCustom{
+  max-width: 300px;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+.currentCity{
+  color: #76323F;
+  text-decoration: underline;
 }

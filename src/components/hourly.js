@@ -1,16 +1,17 @@
 import React from 'react';
 
 function Hourly(props){
+  console.log('hourly',props)
     return (
         <div className="hourly">
-            <h1>{props.date}</h1>
-            <h2>Avg. Humidity : {props.addInfo.avghumidity}</h2>
-            <h2>Avg. Temp: {props.addInfo.avgtemp_c} C</h2>
-            <h2>Max Wind Speed: {props.addInfo.maxwind_kph} kph</h2>
-            <h2>Total Precipitation: {props.addInfo.totalprecip_in} in</h2>
-            <h2>UV: {props.addInfo.uv}</h2>
+            <h1>{props.data.date}</h1>
+            <h2>Avg. Sea Level Pressure : {props.data.allData.slp} mb</h2>
+            <h2>Avg. Temp: {props.data.allData.temp} C</h2>
+            <h2>Wind Speed: {props.data.allData.wind_spd} m/s</h2>
+            <h2>Total Precipitation: {props.data.allData.precip} mm</h2>
+            <h2>UV: {props.data.allData.uv}</h2>
         </div>
     )
 }
-    
+
 export default Hourly;
